@@ -47,12 +47,13 @@ def reverse_myattempt(x):
     # Handle length 0 input
     if len(x_string) == 0 or len(x_string) == 1:
         return x
-    # Flip string
+    
+    # Flip string 
+    flipped = x_string[::-1]
     if flipped[0] == '0':
         flipped = int(sign + flipped[1:])
     else:
         flipped = int(sign + flipped[1:])
-    flipped = x_string[::-1]
     # Handle non 32 bit integers
     if flipped < -2147483648 or flipped > 2147483647:
         return 0
@@ -63,7 +64,11 @@ def reverse_myattempt2(x):
     f = (x < 0)
     x_string = list(str(abs(x)))
     x_string.reverse()
-    int(''.join(x_string))
+    x = int(''.join(x_string))
+    x = -1*f*x + (not f)*x # returns -x if f = True else returns x
+    if abs(x) > 2**31:
+        return 0
+    return x
         
         
     
