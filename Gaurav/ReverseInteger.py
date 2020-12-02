@@ -41,7 +41,7 @@ Constraints:
 @author: gauravanand
 """        
     
-def reverse(x):
+def reverse_myattempt(x):
     sign = ('-' if x < 0 else '')
     x_string = str(abs(x))
     # Handle length 0 input
@@ -58,8 +58,16 @@ def reverse(x):
         return 0
 
     return int(sign + flipped)
+
+def reverse_myattempt2(x):
+    f = (x < 0)
+    x_string = list(str(abs(x)))
+    x_string.reverse()
+    int(''.join(x_string))
+        
+        
+    
     
 if __name__ == '__main__':
-    integer = -123
-    print(reverse(integer))
+    print(reverse_myattempt2(123))
     
